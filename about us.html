@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Calma Chalet</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+background-color:#E7F0F4;
+color:#2C3E50;
+}
+
+header{
+background-color:#2C3E50;
+padding:15px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo-nav img{
+height:55px;
+filter: brightness(0) invert(1);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:0.9rem;
+}
+
+.login-btn-nav{
+background-color:white;
+color:#2C3E50;
+padding:8px 22px;
+border-radius:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background-color:#2C3E50;
+color:white;
+text-align:center;
+padding:80px 20px 180px 20px;
+}
+
+.hero h1{
+font-size:3.5rem;
+margin-bottom:20px;
+font-weight:500;
+}
+
+.hero p{
+max-width:700px;
+margin:0 auto;
+opacity:0.9;
+line-height:1.6;
+font-size:1.1rem;
+}
+
+.image-collage{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:-120px;
+padding:0 5%;
+}
+
+.image-collage img{
+border-radius:25px;
+box-shadow:0 15px 30px rgba(0,0,0,0.2);
+object-fit:cover;
+}
+
+.side-img{
+width:280px;
+height:320px;
+margin-top:60px;
+}
+
+.center-img{
+width:500px;
+height:380px;
+}
+
+.content-section{
+padding:100px 10% 60px 10%;
+text-align:center;
+}
+
+.content-section h2{
+font-size:2.2rem;
+margin-bottom:25px;
+color:#2C3E50;
+font-weight:bold;
+}
+
+.content-section p{
+max-width:850px;
+margin:0 auto 50px auto;
+line-height:1.8;
+color:#2C3E50;
+font-size:1.05rem;
+}
+
+.feature-block{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:60px;
+margin-top:60px;
+text-align:left;
+}
+
+.feature-block video{
+width:500px;
+border-radius:30px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.feature-text{
+max-width:450px;
+font-size:1.1rem;
+line-height:1.8;
+}
+
+hr{
+border:0;
+border-top:2px solid #2C3E50;
+margin:80px auto;
+width:65%;
+opacity:0.3;
+}
+
+.cards-container{
+display:flex;
+justify-content:center;
+gap:40px;
+margin:60px 0;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:50px 30px;
+border-radius:20px;
+width:280px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.04);
+}
+
+.card i{
+font-size:3rem;
+margin-bottom:25px;
+color:#2C3E50;
+}
+
+.card h4{
+font-size:1.2rem;
+color:#2C3E50;
+font-weight:bold;
+}
+
+footer{
+background-color:#2C3E50;
+color:white;
+padding:70px 10% 30px 10%;
+margin-top:100px;
+}
+
+.footer-content{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+padding-bottom:50px;
+border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-logo img{
+height:70px;
+filter: brightness(0) invert(1);
+margin-bottom:15px;
+}
+
+.footer-info p{
+margin-bottom:12px;
+font-size:0.95rem;
+display:flex;
+align-items:center;
+}
+
+.footer-info i{
+margin-right:12px;
+width:20px;
+font-size:1.1rem;
+}
+
+.social-links{
+margin-top:25px;
+}
+
+.social-links span{
+display:block;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.social-links a{
+color:white;
+margin-right:20px;
+font-size:1.4rem;
+transition:0.3s;
+}
+
+.social-links a:hover{
+opacity:0.7;
+}
+
+.footer-bottom{
+text-align:center;
+padding-top:30px;
+}
+
+.footer-nav{
+margin-bottom:15px;
+}
+
+.footer-nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:0.85rem;
+letter-spacing:1px;
+}
+
+@media (max-width:992px){
+
+.image-collage{
+flex-direction:column;
+align-items:center;
+margin-top:20px;
+}
+
+.side-img,
+.center-img{
+width:90%;
+height:auto;
+margin-top:20px;
+}
+
+.feature-block{
+flex-direction:column;
+text-align:center;
+}
+
+.feature-block video{
+width:100%;
+}
+
+.footer-content{
+flex-direction:column;
+gap:40px;
+align-items:center;
+text-align:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo-nav">
+<img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png">
+</div>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="about us.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="login.html" class="login-btn-nav">Login</a>
+</nav>
+
+</header>
+
+<section class="hero">
+<h1>About Us !</h1>
+<p>Discover chalets where comfort, tradition, and unforgettable views come together.</p>
+</section>
+
+<section class="image-collage">
+
+<img src="right about.png" class="side-img">
+<img src="center about.png" class="center-img">
+<img src="left about.png" class="side-img">
+
+</section>
+
+<section class="content-section">
+
+<h2>Homegrown Comfort, Unforgettable Views</h2>
+
+<p>
+Welcome to Calma Chalet, where authentic Palestinian hospitality meets breathtaking landscapes.
+Our mission is to uncover the hidden gems of our land and provide carefully selected chalets for a memorable stay.
+Every stay blends comfort, tradition, and exceptional service.
+</p>
+
+<div class="feature-block">
+
+<video autoplay muted loop controls>
+<source src="ved.mp4" type="video/mp4">
+</video>
+
+<div class="feature-text">
+
+<p>
+We prioritize cozy living, local charm, and stunning views in every experience.
+Whether you seek relaxation, adventure, or family time, Calma Chalet is your perfect getaway.
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<h2>Our Values</h2>
+
+<div class="cards-container">
+
+<div class="card">
+<i class="far fa-smile-wink"></i>
+<h4>+100 Satisfied Customers</h4>
+</div>
+
+<div class="card">
+<i class="fas fa-percent"></i>
+<h4>Seasonal Offers</h4>
+</div>
+
+<div class="card">
+<i class="fas fa-hotel"></i>
+<h4>Handpicked Chalets</h4>
+</div>
+
+<div class="card">
+<i class="fas fa-star"></i>
+<h4>Authentic Hospitality</h4>
+</div>
+
+</div>
+
+<p style="margin-top:50px; font-weight:bold; font-size:1.1rem;">
+Ready to experience comfort and tradition?
+<a href="contact.html" style="color:#2C3E50; text-decoration:underline;">Contact us today</a>
+and book your stay!
+</p>
+
+</section>
+
+<footer>
+
+<div class="footer-content">
+
+<div class="footer-logo">
+<img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png">
+</div>
+
+<div class="footer-info">
+
+<p><i class="fas fa-map-marker-alt"></i> Tulkarm</p>
+<p><i class="fas fa-phone-alt"></i> +972 59-9463-301</p>
+
+<div class="social-links">
+<span>Social Media</span>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<div class="footer-nav">
+<a href="home.html">HOME</a>
+<a href="about us.html">ABOUT US</a>
+<a href="contact.html">CONTACT US</a>
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>

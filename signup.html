@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Calma Chalet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            width: 1000px;
+            height: 600px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            flex: 1.2;
+            background-color: #E7F0F4;
+            color: #2C3E50;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .left-panel h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .name-row {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 15px auto;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            color: #2C3E50;
+            background-color: #fff;
+        }
+
+        .input-group i.toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #4a90e2;
+        }
+
+        .gender-section {
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .gender-section label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .signup-btn {
+            background-color: #2C3E50;
+            color: #E7F0F4;
+            border: none;
+            padding: 12px 50px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px auto 0 auto;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .right-panel {
+            flex: 0.8;
+            background-color: #2C3E50;
+            color: #E7F0F4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            filter: brightness(0) invert(1);
+        }
+
+        .right-panel h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .right-panel p {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 250px;
+            opacity: 0.9;
+        }
+
+        .back-to-login {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .back-to-login a {
+            color: #2C3E50;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column-reverse; height: auto; width: 95%; margin: 20px; }
+            .name-row { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-panel">
+            <h1>Create an account</h1>
+            
+            <form>
+                <div class="name-row">
+                    <div class="input-group">
+                        <input type="text" placeholder="First Name">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Username">
+                </div>
+
+                <div class="input-group">
+                    <input type="email" placeholder="Email">
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Password">
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Confirm Password">
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Phone Number">
+                </div>
+
+                <div class="gender-section">
+                    <span>Gender</span>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                </div>
+
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+
+            <div class="back-to-login">
+                Already have an account? <a href="login.html">Login here</a>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="logo-container">
+                <img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png" alt="Logo">
+            </div>
+            <h2>Sign Up</h2>
+            <p>Create your account and start exploring Palestine's finest chalet experiences with just a few clicks.</p>
+        </div>
+    </div>
+
+    <script>
+function signup(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    users.push({
+        username: username,
+        password: password
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Account created successfully");
+    window.location.replace("login.html");
+}
+</script>
+</body>
+</html>

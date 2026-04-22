@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jericho Chalets</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+background-color:#E7F0F4;
+color:#2C3E50;
+}
+
+header{
+background-color:#2C3E50;
+padding:15px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo-nav img{
+height:55px;
+filter:brightness(0) invert(1);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:0.9rem;
+}
+
+.login-btn-nav{
+background-color:white;
+color:#2C3E50;
+padding:8px 22px;
+border-radius:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero-section{
+background-color:#2C3E50;
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+
+.hero-section h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.hero-section p{
+opacity:0.8;
+font-size:1.1rem;
+}
+
+.chalets-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:30px;
+padding:50px 10%;
+}
+
+.chalet-card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,0.05);
+transition:transform 0.3s;
+}
+
+.chalet-card:hover{
+transform:translateY(-10px);
+}
+
+.chalet-media{
+width:100%;
+height:200px;
+overflow:hidden;
+background:#000;
+}
+
+.chalet-media img,
+.chalet-media video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.chalet-info{
+padding:20px;
+}
+
+.chalet-info h3{
+font-size:1.4rem;
+margin-bottom:10px;
+color:#2C3E50;
+}
+
+.location{
+color:#666;
+font-size:0.9rem;
+margin-bottom:15px;
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+.price-tag{
+font-size:1.3rem;
+font-weight:bold;
+color:#2C3E50;
+margin-bottom:20px;
+}
+
+.price-tag span{
+font-size:0.9rem;
+font-weight:normal;
+color:#888;
+}
+
+.book-btn{
+display:block;
+width:100%;
+background-color:#2C3E50;
+color:white;
+text-align:center;
+padding:12px;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.book-btn:hover{
+background-color:#3e5a77;
+}
+
+footer{
+background-color:#2C3E50;
+color:white;
+padding:70px 10% 30px 10%;
+margin-top:50px;
+}
+
+.footer-content{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+padding-bottom:50px;
+border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-logo img{
+height:70px;
+filter:brightness(0) invert(1);
+}
+
+.footer-info p{
+margin-bottom:12px;
+font-size:0.95rem;
+display:flex;
+align-items:center;
+}
+
+.footer-info i{
+margin-right:12px;
+width:20px;
+}
+
+.social-links{
+margin-top:25px;
+}
+
+.social-links span{
+display:block;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.social-links a{
+color:white;
+margin-right:20px;
+font-size:1.4rem;
+}
+
+.footer-bottom{
+text-align:center;
+padding-top:30px;
+}
+
+.footer-nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:0.85rem;
+letter-spacing:1px;
+}
+
+@media (max-width:768px){
+
+.footer-content{
+flex-direction:column;
+align-items:center;
+text-align:center;
+gap:40px;
+}
+
+.chalets-grid{
+padding:30px 5%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo-nav">
+<img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png">
+</div>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="about us.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="login.html" class="login-btn-nav">Login</a>
+</nav>
+
+</header>
+
+<section class="hero-section">
+
+<h1>Jericho Chalets</h1>
+<p>Choose your perfect chalet for a relaxing stay.</p>
+
+</section>
+
+<div class="chalets-grid">
+
+<div class="chalet-card">
+
+<div class="chalet-media">
+<video autoplay muted loop playsinline>
+<source src="luluwa.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="chalet-info">
+
+<h3>Al-Luluwa Chalet</h3>
+
+<div class="location">
+<i class="fas fa-map-marker-alt"></i>
+Jericho
+</div>
+
+<div class="price-tag">
+550 ₪ <span>/ Night</span>
+</div>
+
+<a href="Al-Luluwa.html" class="book-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+<div class="chalet-card">
+
+<div class="chalet-media">
+<video autoplay muted loop playsinline>
+<source src="rami.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="chalet-info">
+
+<h3>Rami Villa</h3>
+
+<div class="location">
+<i class="fas fa-map-marker-alt"></i>
+Jericho
+</div>
+
+<div class="price-tag">
+800 ₪ <span>/ Night</span>
+</div>
+
+<a href="Rami villa.html" class="book-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+<div class="chalet-card">
+
+<div class="chalet-media">
+<video autoplay muted loop playsinline>
+<source src="nisan.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="chalet-info">
+
+<h3>Nissan Villa</h3>
+
+<div class="location">
+<i class="fas fa-map-marker-alt"></i>
+Jericho
+</div>
+
+<div class="price-tag">
+650 ₪ <span>/ Night</span>
+</div>
+
+<a href="nissan villa.html" class="book-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+<div class="chalet-card">
+
+<div class="chalet-media">
+<img src="naya.jpg">
+</div>
+
+<div class="chalet-info">
+
+<h3>Naya Chalet</h3>
+
+<div class="location">
+<i class="fas fa-map-marker-alt"></i>
+Jericho
+</div>
+
+<div class="price-tag">
+950 ₪ <span>/ Night</span>
+</div>
+
+<a href="Naya.html" class="book-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+<div class="chalet-card">
+
+<div class="chalet-media">
+<img src="snowhite.jpg">
+</div>
+
+<div class="chalet-info">
+
+<h3>Snow White Palace</h3>
+
+<div class="location">
+<i class="fas fa-map-marker-alt"></i>
+Jericho
+</div>
+
+<div class="price-tag">
+450 ₪ <span>/ Night</span>
+</div>
+
+<a href="snowwhite.html" class="book-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+<div class="chalet-card">
+
+<div class="chalet-media">
+<img src="yara.jpg">
+</div>
+
+<div class="chalet-info">
+
+<h3>Yara Chalet</h3>
+
+<div class="location">
+<i class="fas fa-map-marker-alt"></i>
+Jericho
+</div>
+
+<div class="price-tag">
+700 ₪ <span>/ Night</span>
+</div>
+
+<a href="yara.html" class="book-btn">
+View Details
+</a>
+
+</div>
+</div>
+
+</div>
+
+<footer>
+
+<div class="footer-content">
+
+<div class="footer-logo">
+<img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png">
+</div>
+
+<div class="footer-info">
+
+<p>
+<i class="fas fa-map-marker-alt"></i>
+Tulkarm
+</p>
+
+<p>
+<i class="fas fa-phone-alt"></i>
++972 59-9463-301
+</p>
+
+<div class="social-links">
+
+<span>Social Media</span>
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<div class="footer-nav">
+<a href="home.html">HOME</a>
+<a href="about us.html">ABOUT US</a>
+<a href="contact.html">CONTACT US</a>
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>

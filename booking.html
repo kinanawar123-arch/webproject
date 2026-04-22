@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Chalet</title>
+
+<script>
+if (sessionStorage.getItem("loggedIn") !== "true") {
+    window.location.replace("login.html");
+}
+</script>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: #E7F0F4;
+}
+header {
+    background: #2C3E50;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+}
+header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+.container {
+    width: 75%;
+    margin: 40px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #2C3E50;
+}
+label {
+    display: block;
+    margin-top: 18px;
+    font-weight: bold;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+hr {
+    margin: 25px 0;
+    border: none;
+    height: 1px;
+    background: #ddd;
+}
+.total {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+.book-btn {
+    margin-top: 25px;
+    background: #2C3E50;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.payment-details {
+    display: none;
+    margin-top: 15px;
+}
+</style>
+
+<script>
+function showPayment(show) {
+    document.getElementById("paymentDetails").style.display = show ? "block" : "none";
+}
+
+function calculatePrice() {
+    const chalet = document.getElementById("chalet");
+    const selectedOption = chalet.options[chalet.selectedIndex];
+    if (!selectedOption) return;
+
+    const pricePerNight = selectedOption.getAttribute("data-price");
+    const checkin = new Date(document.getElementById("checkin").value);
+    const checkout = new Date(document.getElementById("checkout").value);
+
+    if (pricePerNight && document.getElementById("checkin").value && document.getElementById("checkout").value) {
+        const diff = checkout - checkin;
+        const nights = diff / (1000*60*60*24);
+        if (nights > 0) {
+            const total = nights * pricePerNight;
+            document.getElementById("totalPrice").innerText = "Total Price: ₪" + total + " (" + nights + " nights)";
+        }
+    }
+}
+
+function updateChalets() {
+    const city = document.getElementById("city").value;
+    const chaletSelect = document.getElementById("chalet");
+    chaletSelect.innerHTML = '<option value="">Select Chalet</option>';
+
+    let chalets = [];
+
+    if(city === "Nablus") {
+        chalets = [
+            {name:"Al-Nokhbah Chalets", price:550},
+            {name:"Malak Chalet", price:800},
+            {name:"Al-Mazra’a Chalets", price:650},
+            {name:"Marina Chalet", price:950},
+            {name:"Smoky Chalet", price:450},
+            {name:"Day’at Al-Lion Resort", price:700}
+        ];
+    } else if(city === "Tulkarm") {
+        chalets = [
+            {name:"Al-Yasmina Chalet", price:550},
+            {name:"Beirut Chalet", price:800},
+            {name:"Al-Qalaa Chalet", price:650},
+            {name:"Sophia Chalet", price:950},
+            {name:"Al-Amaken Chalet", price:450},
+            {name:"Royal Palace Chalet", price:700}
+        ];
+    } else if(city === "Jericho") {
+        chalets = [
+            {name:"Rami Villa", price:750},
+            {name:"Nissan Villa", price:680},
+            {name:"Naya Chalet", price:800},
+            {name:"Yara Chalet", price:700},
+            {name:"Snow White Palace", price:900},
+            {name:"Al-Lu'lu'a Chalet", price:550}
+        ];
+    }
+
+    chalets.forEach(ch => {
+        const option = document.createElement("option");
+        option.text = ch.name + " - ₪" + ch.price + " / night";
+        option.value = ch.name;
+        option.setAttribute("data-price", ch.price);
+        chaletSelect.add(option);
+    });
+
+    document.getElementById("totalPrice").innerText = "Total Price: ₪0";
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div>
+        <a href="home.html">Home</a>
+        <a href="NablusChalet.html">Nablus Chalets</a>
+        <a href="TulkarmChalet.html">Tulkarm Chalets</a>
+        <a href="Jericho.html">Jericho Chalets</a>
+    </div>
+    <a href="login.html">Login</a>
+</header>
+
+<div class="container">
+    <h1>Book Your Chalet</h1>
+
+    <form action="confirmation.html">
+
+        <label>Select City</label>
+        <select id="city" onchange="updateChalets()" required>
+            <option value="">Select City</option>
+            <option value="Nablus">Nablus</option>
+            <option value="Tulkarm">Tulkarm</option>
+            <option value="Jericho">Jericho</option>
+        </select>
+
+        <label>Select Chalet</label>
+        <select id="chalet" onchange="calculatePrice()" required>
+            <option value="">Select Chalet</option>
+        </select>
+
+        <hr>
+
+        <label>Check-in Date</label>
+        <input type="date" id="checkin" onchange="calculatePrice()" required>
+
+        <label>Check-out Date</label>
+        <input type="date" id="checkout" onchange="calculatePrice()" required>
+
+        <label>Number of Guests</label>
+        <input type="number" min="1" max="20" required>
+
+        <div class="total" id="totalPrice">Total Price: ₪0</div>
+
+        <hr>
+
+        <h3>Special Requests</h3>
+        <textarea rows="4"></textarea>
+
+        <hr>
+
+        <h3>Payment</h3>
+        <label><input type="radio" name="payment" onclick="showPayment(true)"> Pay Now</label>
+        <label><input type="radio" name="payment" onclick="showPayment(false)"> Pay at Arrival</label>
+
+        <div class="payment-details" id="paymentDetails">
+            <label>Card Number</label>
+            <input type="text">
+            <label>Expiry Date</label>
+            <input type="text">
+            <label>CVV</label>
+            <input type="text">
+        </div>
+
+        <button class="book-btn">Confirm Booking</button>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Calma Chalet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            width: 900px;
+            height: 550px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: #E7F0F4;
+            color: #2C3E50;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .left-panel .icon-group {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .left-panel h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .left-panel p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            max-width: 300px;
+        }
+
+        .right-panel {
+            flex: 1;
+            background-color: #2C3E50;
+            color: #E7F0F4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .logo-container {
+            width: 100%;
+            max-width: 160px; 
+            margin-bottom: 20px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-width: 100%; 
+            height: auto; 
+            object-fit: contain; 
+            filter: brightness(0) invert(1);
+        }
+
+        .right-panel h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #E7F0F4;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+
+        .input-group i.main-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2C3E50; 
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #2C3E50; 
+        }
+
+        .input-group input::placeholder {
+            color: #2C3E50;
+            opacity: 0.7;
+        }
+
+        .input-group i.toggle-password {
+            position: absolute;
+            right: 15px; 
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: #4a90e2;
+        }
+
+        .options {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .options input {
+            margin-right: 8px;
+        }
+
+        .login-btn {
+            background-color: #E7F0F4;
+            color: #2C3E50;
+            border: none;
+            padding: 12px 60px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #d1e4ed;
+            transform: scale(1.05);
+        }
+
+        .signup-link {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #E7F0F4;
+        }
+
+        .signup-link a {
+            color: #E7F0F4;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+                width: 95%;
+                margin: 20px;
+            }
+            .left-panel, .right-panel {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="icon-group">
+                <i class="fas fa-users"></i>
+            </div>
+            <h1>Login</h1>
+            <p>Welcome back to Calma Chalet, your gateway to unforgettable stays in Palestine.</p>
+        </div>
+
+        <div class="right-panel">
+            <div class="logo-container">
+                <img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png" alt="Logo">
+            </div>
+            
+            <h2>Welcome back!</h2>
+            
+            <form onsubmit="login(event)" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <div class="input-group">
+                    <i class="fas fa-user main-icon"></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock main-icon"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Create new account</a>
+            </div>
+        </div>
+    </div>
+
+<script>
+function login(e){
+    e.preventDefault();
+
+    const username = document.querySelector("input[type='text']").value;
+    const password = document.getElementById("password").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if(user){
+        sessionStorage.setItem("loggedIn", "true");
+        sessionStorage.setItem("username", username);
+
+        window.location.replace("booking.html");
+    } else {
+        alert("Wrong username or password");
+    }
+}
+</script>
+
+</body>
+</html>

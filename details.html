@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #E7F0F4;
+    color: #2C3E50;
+}
+
+header {
+    background-color: #2C3E50;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-nav img {
+    height: 55px;
+    filter: brightness(0) invert(1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.login-btn-nav {
+    background-color: white;
+    color: #2C3E50;
+    padding: 8px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.details-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.main-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.image-gallery img:hover {
+    filter: brightness(0.8);
+}
+
+.main-img {
+    grid-row: span 2;
+}
+
+.features-grid {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature-item i {
+    font-size: 1.5rem;
+    color: #2C3E50;
+}
+
+.feature-item div span {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.feature-item div p {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.booking-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+    text-align: center;
+}
+
+.price-box {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #2C3E50;
+}
+
+.price-box span {
+    font-size: 1rem;
+    color: #888;
+    font-weight: normal;
+}
+
+.book-now-btn {
+    background-color: #2C3E50;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.book-now-btn:hover {
+    background-color: #3e5a77;
+    transform: translateY(-3px);
+}
+
+footer {
+    background-color: #2C3E50;
+    color: white;
+    padding: 70px 10% 30px 10%;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.footer-logo img {
+    height: 70px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-info p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-info i {
+    margin-right: 12px;
+    width: 20px;
+}
+
+.social-links { margin-top: 25px; }
+.social-links span { display: block; margin-bottom: 10px; font-weight: bold; }
+.social-links a { color: white; margin-right: 20px; font-size: 1.4rem; }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+    .details-container { grid-template-columns: 1fr; }
+    .booking-card { position: static; margin-top: 30px; }
+    .image-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .main-img { grid-row: auto; height: 300px; }
+    .footer-content { flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+    .footer-info p { justify-content: center; }
+}
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalet Details - Kanani Chalet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #E7F0F4;
+            color: #2C3E50;
+        }
+
+        header {
+            background-color: #2C3E50;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav img {
+            height: 55px;
+            filter: brightness(0) invert(1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .login-btn-nav {
+            background-color: white;
+            color: #2C3E50;
+            padding: 8px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .details-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .main-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .main-img {
+            grid-row: span 2;
+        }
+
+        .features-grid {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: #2C3E50;
+        }
+
+        .feature-item div span {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .feature-item div p {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 40px;
+            text-align: center;
+        }
+
+        .price-box {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .price-box span {
+            font-size: 1rem;
+            color: #888;
+            font-weight: normal;
+        }
+
+        .book-now-btn {
+            background-color: #2C3E50;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .book-now-btn:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 70px 10% 30px 10%;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-logo img {
+            height: 70px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-info p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-info i {
+            margin-right: 12px;
+            width: 20px;
+        }
+
+        .social-links { margin-top: 25px; }
+        .social-links span { display: block; margin-bottom: 10px; font-weight: bold; }
+        .social-links a { color: white; margin-right: 20px; font-size: 1.4rem; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 900px) {
+            .details-container { grid-template-columns: 1fr; }
+            .booking-card { position: static; margin-top: 30px; }
+            .image-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-nav">
+            <img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png" alt="Logo">
+        </div>
+        <nav>
+            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/home.html">Home</a>
+            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/about%20us.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/login.html" class="login-btn-nav">Login</a>
+        </nav>
+    </header>
+
+    <div class="details-container">
+        <div class="main-content">
+            <h1>Calma Chalet</h1>
+            <div class="location-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Tulkarm - Kafsrue</span>
+            </div>
+
+            <div class="image-gallery">
+                <img src="main_chalet.jpg" class="main-img" alt="Main View">
+                <img src="pool_view.jpg" alt="Pool View">
+                <img src="room_view.jpg" alt="Interior View">
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-bed"></i>
+                    <div>
+                        <span>Rooms</span>
+                        <p>3 Bedrooms</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-swimming-pool"></i>
+                    <div>
+                        <span>Pool</span>
+                        <p>Yes (Private)</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <span>Capacity</span>
+                        <p>10 Persons</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-wifi"></i>
+                    <div>
+                        <span>Wi-Fi</span>
+                        <p>Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-card">
+            <div class="price-box">
+                $150 <span>/ Night</span>
+            </div>
+            <a href="#" class="book-now-btn">Book Now</a>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #888;">No reservation fees</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png" alt="Footer Logo">
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> Tulkarm</p>
+                <p><i class="fas fa-phone-alt"></i> +972 59-9463-301</p>
+                <div class="social-links">
+                    <span>Social Media</span>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-nav">
+                <a href="file:///C:/Users/test2/OneDrive/Desktop/project/home.html">HOME</a>
+                <a href="file:///C:/Users/test2/OneDrive/Desktop/project/about%20us.html">ABOUT US</a>
+                <a href="contact.html">CONTACT US</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+</body>
+</html>
