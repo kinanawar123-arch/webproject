@@ -294,8 +294,7 @@ text-align:center;
 <a href="home.html">Home</a>
 <a href="about us.html">About Us</a>
 <a href="contact.html">Contact</a>
-<a href="login.html" class="login-btn-nav">Login</a>
-</nav>
+<a href="login.html" class="login-btn-nav" id="authBtn">Login</a></nav>
 
 </header>
 
@@ -410,6 +409,33 @@ and book your stay!
 </div>
 
 </footer>
+<script>
+function updateAuthButton() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const btn = document.getElementById("authBtn");
 
+    if (!btn) return;
+
+    if (user) {
+        btn.textContent = "Logout";
+        btn.href = "#";
+
+        btn.onclick = function(e) {
+            e.preventDefault();
+
+            localStorage.removeItem("currentUser");
+
+            // يرجع Login ويحدث الصفحة
+            location.reload();
+        };
+    } else {
+        btn.textContent = "Login";
+        btn.href = "login.html";
+        btn.onclick = null;
+    }
+}
+
+updateAuthButton();
+</script>
 </body>
 </html>

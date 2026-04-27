@@ -137,7 +137,7 @@ text-align:center;
 <a href="home.html">Home</a>
 <a href="about us.html">About Us</a>
 <a href="contact.html">Contact</a>
-<a href="login.html" class="login-btn-nav">Login</a>
+            <a href="login.html" class="login-btn-nav" id="authBtn">Login</a>
 </nav>
 
 </header>
@@ -183,8 +183,9 @@ perfect for families or groups seeking a comfortable and relaxing stay.
 <li><i class="fas fa-check"></i> Kids Play Area</li>
 </ul>
 
-<a href="booking.html" class="book-btn">Book Now</a>
-
+<a href="#" class="book-btn" onclick="handleBooking(event)">
+    Book Now
+</a>
 </div>
 
 </div>
@@ -192,6 +193,43 @@ perfect for families or groups seeking a comfortable and relaxing stay.
 <footer>
 <p>© 2026 Tulkarm Chalets</p>
 </footer>
+<script>
+function updateAuthButton() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const btn = document.getElementById("authBtn");
 
+    if (!btn) return;
+
+    if (user) {
+        btn.textContent = "Logout";
+        btn.href = "#";
+
+        btn.onclick = function (e) {
+            e.preventDefault();
+            localStorage.removeItem("currentUser");
+            location.reload(); // يرجع الصفحة بدون تسجيل
+        };
+    } else {
+        btn.textContent = "Login";
+        btn.href = "login.html";
+        btn.onclick = null;
+    }
+}
+
+updateAuthButton();
+
+function handleBooking(e) {
+    e.preventDefault();
+
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (user) {
+        window.location.href = "booking.html";
+    } else {
+        localStorage.setItem("redirectAfterLogin", "booking.html");
+        window.location.href = "login.html";
+    }
+}
+</script>
 </body>
 </html>

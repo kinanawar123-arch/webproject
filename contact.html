@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +74,7 @@
             display: flex;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
         .info-panel {
@@ -126,7 +127,8 @@
             margin-bottom: 20px;
         }
 
-        .input-box input, .input-box textarea {
+        .input-box input,
+        .input-box textarea {
             width: 100%;
             padding: 15px 20px;
             border-radius: 15px;
@@ -170,7 +172,7 @@
             justify-content: space-between;
             align-items: flex-start;
             padding-bottom: 50px;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .footer-logo img {
@@ -190,9 +192,21 @@
             width: 20px;
         }
 
-        .social-links { margin-top: 25px; }
-        .social-links span { display: block; margin-bottom: 10px; font-weight: bold; }
-        .social-links a { color: white; margin-right: 20px; font-size: 1.4rem; }
+        .social-links {
+            margin-top: 25px;
+        }
+
+        .social-links span {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 20px;
+            font-size: 1.4rem;
+        }
 
         .footer-bottom {
             text-align: center;
@@ -208,11 +222,21 @@
         }
 
         @media (max-width: 850px) {
-            .contact-container { flex-direction: column; margin: -50px 20px 50px 20px; }
-            .footer-content { flex-direction: column; gap: 40px; text-align: center; align-items: center; }
+            .contact-container {
+                flex-direction: column;
+                margin: -50px 20px 50px 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+                align-items: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -220,10 +244,10 @@
             <img src="Gemini_Generated_Image_i55pgdi55pgdi55p-removebg-preview.png" alt="Logo">
         </div>
         <nav>
-            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/home.html">Home</a>
-            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/about%20us.html">About Us</a>
-            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/contact.html">Contact</a>
-            <a href="file:///C:/Users/test2/OneDrive/Desktop/project/login.html" class="login-btn-nav">Login</a>
+            <a href="home.html">Home</a>
+            <a href="about us.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-btn-nav" id="authBtn">Login</a>
         </nav>
     </header>
 
@@ -236,17 +260,17 @@
         <div class="info-panel">
             <h2>Contact Information</h2>
             <p>If you would like to add your villa to our website, add it here.</p>
-            
+
             <div class="contact-item">
                 <i class="fas fa-phone-alt"></i>
                 <span>+972 59-946-3301</span>
             </div>
-            
+
             <div class="contact-item">
                 <i class="fas fa-envelope"></i>
                 <span>kltptuk@gmail.com</span>
             </div>
-            
+
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Tulkarem</span>
@@ -294,6 +318,31 @@
             </div>
         </div>
     </footer>
+<script>
+function updateAuthButton() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const btn = document.getElementById("authBtn");
 
+    if (!btn) return;
+
+    if (user) {
+        btn.textContent = "Logout";
+        btn.href = "#";
+
+        btn.onclick = function (e) {
+            e.preventDefault();
+            localStorage.removeItem("currentUser");
+            location.reload(); // يرجع الصفحة بدون تسجيل
+        };
+    } else {
+        btn.textContent = "Login";
+        btn.href = "login.html";
+        btn.onclick = null;
+    }
+}
+
+updateAuthButton();
+</script>
 </body>
+
 </html>

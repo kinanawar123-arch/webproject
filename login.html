@@ -216,7 +216,7 @@
             <form onsubmit="login(event)" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
                 <div class="input-group">
                     <i class="fas fa-user main-icon"></i>
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" placeholder="Username" required  id="username">
                 </div>
 
                 <div class="input-group">
@@ -244,7 +244,7 @@
 function login(e){
     e.preventDefault();
 
-    const username = document.querySelector("input[type='text']").value;
+    const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value;
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -252,15 +252,26 @@ function login(e){
     const user = users.find(u => u.username === username && u.password === password);
 
     if(user){
-        sessionStorage.setItem("loggedIn", "true");
-        sessionStorage.setItem("username", username);
 
-        window.location.replace("booking.html");
+        localStorage.setItem("currentUser", JSON.stringify(user));
+
+        // 👇 نجيب redirect إذا موجود
+        let redirect = localStorage.getItem("redirectAfterLogin");
+
+        // ❌ نمسحه أول ما نستخدمه
+        localStorage.removeItem("redirectAfterLogin");
+
+        // ✔️ إذا ما في redirect → روح home
+        if(!redirect){
+            redirect = "home.html";
+        }
+
+        window.location.href = redirect;
+
     } else {
-        alert("Wrong username or password");
+        alert("Wrong username or password ❌");
     }
 }
 </script>
-
 </body>
 </html>

@@ -241,7 +241,7 @@ padding:30px 5%;
 <a href="home.html">Home</a>
 <a href="about us.html">About Us</a>
 <a href="contact.html">Contact</a>
-<a href="login.html" class="login-btn-nav">Login</a>
+            <a href="login.html" class="login-btn-nav" id="authBtn">Login</a>
 </nav>
 
 </header>
@@ -464,6 +464,30 @@ Tulkarm
 </div>
 
 </footer>
+<script>
+function updateAuthButton() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const btn = document.getElementById("authBtn");
 
+    if (!btn) return;
+
+    if (user) {
+        btn.textContent = "Logout";
+        btn.href = "#";
+
+        btn.onclick = function (e) {
+            e.preventDefault();
+            localStorage.removeItem("currentUser");
+            location.reload(); // يرجع الصفحة بدون تسجيل
+        };
+    } else {
+        btn.textContent = "Login";
+        btn.href = "login.html";
+        btn.onclick = null;
+    }
+}
+
+updateAuthButton();
+</script>
 </body>
 </html>

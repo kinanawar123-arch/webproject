@@ -6,7 +6,9 @@
 <title>Book Your Chalet</title>
 
 <script>
-if (sessionStorage.getItem("loggedIn") !== "true") {
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!user) {
     window.location.replace("login.html");
 }
 </script>
@@ -164,7 +166,7 @@ function updateChalets() {
         <a href="TulkarmChalet.html">Tulkarm Chalets</a>
         <a href="Jericho.html">Jericho Chalets</a>
     </div>
-    <a href="login.html">Login</a>
+<a href="login.html" class="login-btn-nav" id="authBtn">Login</a></nav>
 </header>
 
 <div class="container">
@@ -222,6 +224,30 @@ function updateChalets() {
 
     </form>
 </div>
+<script>
+    function updateAuthButton() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const btn = document.getElementById("authBtn");
 
+    if (!btn) return;
+
+    if (user) {
+        btn.textContent = "Logout";
+        btn.href = "#";
+
+        btn.onclick = function (e) {
+            e.preventDefault();
+            localStorage.removeItem("currentUser");
+            location.reload(); // يرجع الصفحة بدون تسجيل
+        };
+    } else {
+        btn.textContent = "Login";
+        btn.href = "login.html";
+        btn.onclick = null;
+    }
+}
+
+updateAuthButton();
+</script>
 </body>
 </html>
